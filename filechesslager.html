@@ -1,1 +1,96 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Список участников</title><style>body { font-family: Arial, sans-serif; margin: 20px; }h1 { text-align: center; font-size: 24px; margin-bottom: 20px; }.deal { margin-bottom: 10px; padding: 10px; border-bottom: 1px solid #ccc; }</style></head><body><h1>Предварительные списки Лагеря</h1><div id="dealsContainer"><p>Загрузка данных...</p></div><script>function displayDeals(deals) {var container = document.getElementById("dealsContainer");container.innerHTML = "";if (deals.length === 0) {container.innerHTML = "<p>Нет данных</p>";return;}deals.forEach(function(deal, index) {var div = document.createElement("div");div.className = "deal";div.textContent = (index + 1) + ". " + deal.fullName;container.appendChild(div);});}google.script.run.withSuccessHandler(displayDeals).getDeals();</script></body></html>
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Список участников</title><style>body { font-family: Arial, sans-serif; padding: 20px; margin: 0; }table { width: 100%; border-collapse: collapse; margin-top: 20px; }th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }th { background-color: #f4f4f4; }</style></head><body><h2>Список участников</h2><table><thead><tr><th>№</th><th>ФИО</th><th>ID РШТ</th><th>Рейтинг</th></tr></thead><tbody><tr>
+               <td>1</td>
+               <td>Распутько Кирилл Анатольевич</td>
+               <td>127921</td>
+               <td>1544</td>
+             </tr><tr>
+               <td>2</td>
+               <td>Зуйков  Сергей   Александрович</td>
+               <td>141693</td>
+               <td>1382</td>
+             </tr><tr>
+               <td>3</td>
+               <td>Подабашева Елизавета Александровна</td>
+               <td>136568</td>
+               <td>1143</td>
+             </tr><tr>
+               <td>4</td>
+               <td>Фирсов Иван Денисович</td>
+               <td>144485</td>
+               <td>1031</td>
+             </tr><tr>
+               <td>5</td>
+               <td>Глушко Диана Александровна</td>
+               <td>101235</td>
+               <td>1005</td>
+             </tr><tr>
+               <td>6</td>
+               <td>Трощенко Георгий Алексеевич</td>
+               <td>132291</td>
+               <td>978</td>
+             </tr><tr>
+               <td>7</td>
+               <td>Таракин Егор Павлович</td>
+               <td>142135</td>
+               <td>949</td>
+             </tr><tr>
+               <td>8</td>
+               <td>Борисов Максим</td>
+               <td>105535</td>
+               <td>893</td>
+             </tr><tr>
+               <td>9</td>
+               <td>Пяткин Владислав Константинович</td>
+               <td>150039</td>
+               <td>884</td>
+             </tr><tr>
+               <td>10</td>
+               <td>Сапельников  Никита Алексеевич</td>
+               <td>150740</td>
+               <td>876</td>
+             </tr><tr>
+               <td>11</td>
+               <td>Потапов Иван Алексеевич</td>
+               <td>151755</td>
+               <td>681</td>
+             </tr><tr>
+               <td>12</td>
+               <td>Молчанов Кирилл Сергеевич</td>
+               <td>154610</td>
+               <td>674</td>
+             </tr><tr>
+               <td>13</td>
+               <td>Леготин Игорь Георгиевич</td>
+               <td></td>
+               <td></td>
+             </tr><tr>
+               <td>14</td>
+               <td>Поташев Федор Алексеевич</td>
+               <td></td>
+               <td></td>
+             </tr><tr>
+               <td>15</td>
+               <td>Ашрафова Виктория  Васифовна</td>
+               <td></td>
+               <td></td>
+             </tr><tr>
+               <td>16</td>
+               <td>Никаноров Сафрон Александрович</td>
+               <td></td>
+               <td></td>
+             </tr><tr>
+               <td>17</td>
+               <td>Колчев Никита Сергеевич</td>
+               <td></td>
+               <td></td>
+             </tr><tr>
+               <td>18</td>
+               <td>Гулин Александр  Евгеньевич</td>
+               <td></td>
+               <td></td>
+             </tr><tr>
+               <td>19</td>
+               <td>Заломов Герман Алексеевич</td>
+               <td></td>
+               <td></td>
+             </tr></tbody></table></body></html>
