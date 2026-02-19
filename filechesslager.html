@@ -2,114 +2,106 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Список участников лагеря</title>
-<style>
-body { font-family: Arial; padding:20px; margin:0; }
-table { width:100%; border-collapse:collapse; margin-top:20px; }
-th, td { border:1px solid #ccc; padding:8px; text-align:left; }
-th { background:#f4f4f4; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лагерь — список участников</title>
+  <style>
+    body { font-family:Arial,sans-serif; padding:20px; margin:0 }
+    h2   { text-align:center; margin-bottom:20px }
+    .btn-container {
+      display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-bottom:10px;
+    }
+    .btn {
+      padding:8px 16px; border:none; border-radius:5px;
+      background:#D96B1C; color:#fff; cursor:pointer; font-size:14px;
+    }
+    .btn:hover { background:#C36019 }
+    #avg { text-align:center; margin-top:6px; font-weight:600; }
+    table { width:100%; border-collapse:collapse; margin-top:16px }
+    th, td { border:1px solid #ccc; padding:8px; text-align:left }
+    th { background:#f4f4f4; cursor:pointer }
+    @media(max-width:480px){
+      body { font-size:12px; padding:10px }
+      th,td { padding:4px; font-size:10px }
+      .btn { flex:1 1 auto; min-width:140px }
+    }
+  </style>
 </head>
 <body>
-<h2>Список участников лагеря</h2>
-<table>
-<thead>
-<tr>
-<th>№</th>
-<th>ФИО</th>
-<th>ID ФШР</th>
-<th>Год</th>
-<th>Рейтинг</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Борисов  Максим Антонович</td>
-<td>623921</td>
-<td>2016</td>
-<td>1402</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Подабашева Елизавета  Александровна</td>
-<td>529422</td>
-<td>2015</td>
-<td>1344</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Цовян  Амалия Давидовна</td>
-<td>667529</td>
-<td>2011</td>
-<td>1339</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Фирсов Иван Денисович</td>
-<td>596107</td>
-<td>2017</td>
-<td>1336</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Шпаковский Арсений Олегович</td>
-<td>511207</td>
-<td>2011</td>
-<td>1234</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Фесенко  Иван Олегович</td>
-<td>703775</td>
-<td>2015</td>
-<td>1205</td>
-</tr>
-<tr>
-<td>7</td>
-<td>Леготин Игорь Георгиевич</td>
-<td>468075</td>
-<td>2013</td>
-<td>1152</td>
-</tr>
-<tr>
-<td>8</td>
-<td>Козаев Тамерлан Георгиевич</td>
-<td>697598</td>
-<td>2013</td>
-<td>1077</td>
-</tr>
-<tr>
-<td>9</td>
-<td>Кучерук Сергей Александрович</td>
-<td>626733</td>
-<td>2016</td>
-<td>1013</td>
-</tr>
-<tr>
-<td>10</td>
-<td>Сироткин Петр Алексеевич</td>
-<td>697540</td>
-<td>2016</td>
-<td>1000</td>
-</tr>
-<tr>
-<td>11</td>
-<td>Наркевич  Елизавета</td>
-<td></td>
-<td>2015</td>
-<td></td>
-</tr>
-<tr>
-<td>12</td>
-<td>Колесникова  Алёна  Дмитриевна</td>
-<td></td>
-<td>2015</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+  <h2>Выберите категорию</h2>
+  <div class="btn-container">
+    <button class="btn" onclick="filter('Участники лагеря')">Участники лагеря</button>
+  </div>
+
+  <div id="avg"></div>
+
+  <table id="tab">
+    <thead><tr id="hdr"></tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    var data = [{"group":"Участники лагеря","fullName":"Борисов  Максим Антонович","birth":"2016","id":"623921","rt":"1402"},{"group":"Участники лагеря","fullName":"Подабашева Елизавета  Александровна","birth":"2015","id":"529422","rt":"1344"},{"group":"Участники лагеря","fullName":"Цовян  Амалия Давидовна","birth":"2011","id":"667529","rt":"1339"},{"group":"Участники лагеря","fullName":"Фирсов Иван Денисович","birth":"2017","id":"596107","rt":"1336"},{"group":"Участники лагеря","fullName":"Шпаковский Арсений Олегович","birth":"2011","id":"511207","rt":"1234"},{"group":"Участники лагеря","fullName":"Фесенко  Иван Олегович","birth":"2015","id":"703775","rt":"1205"},{"group":"Участники лагеря","fullName":"Леготин Игорь Георгиевич","birth":"2013","id":"468075","rt":"1152"},{"group":"Участники лагеря","fullName":"Козаев Тамерлан Георгиевич","birth":"2013","id":"697598","rt":"1077"},{"group":"Участники лагеря","fullName":"Кучерук Сергей Александрович","birth":"2016","id":"626733","rt":"1013"},{"group":"Участники лагеря","fullName":"Наркевич  Елизавета","birth":"2015","id":"","rt":"1000"},{"group":"Участники лагеря","fullName":"Сироткин Петр Алексеевич","birth":"2016","id":"697540","rt":"1000"},{"group":"Участники лагеря","fullName":"Колесникова  Алёна  Дмитриевна","birth":"2015","id":"","rt":"1000"}];
+    var grp  = 'Участники лагеря', col = 'rt', asc = false;
+
+    function sortBy(c){
+      if(col === c) asc = !asc; else { col = c; asc = false; }
+      render();
+    }
+
+    function filter(g){
+      grp = g; col = 'rt'; asc = false;
+      render();
+    }
+
+    function render(){
+      var hdr = document.getElementById('hdr');
+      hdr.innerHTML = [
+        '<th>#</th>',
+        '<th onclick="sortBy(\'fullName\')">ФИО</th>',
+        '<th onclick="sortBy(\'id\')">ID</th>',
+        '<th onclick="sortBy(\'birth\')">Год рожд.</th>',
+        '<th onclick="sortBy(\'rt\')">Рейтинг</th>'
+      ].join('');
+
+      var body = document.querySelector('#tab tbody');
+      body.innerHTML = '';
+
+      var filtered = data.filter(function(p){ return p.group === grp; });
+
+      // Средний рейтинг (учитываем только числовые)
+      var sum = 0, cnt = 0;
+      for (var k = 0; k < filtered.length; k++) {
+        var n = parseFloat(filtered[k].rt);
+        if (!isNaN(n)) { sum += n; cnt++; }
+      }
+      var avg = cnt ? Math.round(sum / cnt) : 0;
+      document.getElementById('avg').textContent =
+        'Средний рейтинг: ' + avg + ' (участников: ' + filtered.length + ')';
+
+      filtered
+        .sort(function(a,b){
+          var A = a[col]||'', B = b[col]||'';
+          var nA = parseFloat(A), nB = parseFloat(B);
+          if(!isNaN(nA) && !isNaN(nB)){
+            return asc ? nA - nB : nB - nA;
+          }
+          return A < B ? (asc ? -1 : 1) : A > B ? (asc ? 1 : -1) : 0;
+        })
+        .forEach(function(p,i){
+          body.insertAdjacentHTML('beforeend',
+            '<tr>' +
+              '<td>' + (i+1) + '</td>' +
+              '<td>' + (p.fullName || '') + '</td>' +
+              '<td>' + (p.id       || '') + '</td>' +
+              '<td>' + (p.birth    || '') + '</td>' +
+              '<td>' + (p.rt       || '') + '</td>' +
+            '</tr>'
+          );
+        });
+    }
+
+    window.onload = render;
+  </script>
 </body>
 </html>
