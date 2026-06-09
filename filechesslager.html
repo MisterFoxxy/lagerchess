@@ -6,65 +6,120 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Лагерь — список участников</title>
   <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      padding: 20px;
-      margin: 0;
-      background: #ffffff;
       color: #222;
+      padding: 24px 16px;
     }
+
+    .wrap {
+      max-width: 760px;
+      margin: 40px auto;
+      padding: 22px 28px 24px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      border-radius: 4px;
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+    }
+
     h2 {
       text-align: center;
-      margin-bottom: 8px;
+      margin: 0 0 10px;
+      font-size: 26px;
+      line-height: 1.2;
     }
+
     #avg {
       text-align: center;
-      margin-top: 6px;
-      font-weight: 600;
+      margin-top: 0;
+      margin-bottom: 18px;
+      font-weight: 700;
+      font-size: 17px;
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 16px;
+      margin-top: 8px;
+      background: transparent;
     }
+
     th, td {
-      border: 1px solid #ccc;
-      padding: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.10);
+      padding: 10px 10px;
       text-align: left;
+      background: rgba(255, 255, 255, 0.18);
     }
+
     th {
-      background: #f4f4f4;
+      background: rgba(255, 255, 255, 0.28);
       cursor: pointer;
       user-select: none;
+      font-weight: 700;
     }
+
     th:hover {
-      background: #ebebeb;
+      background: rgba(255, 255, 255, 0.40);
     }
-    @media(max-width:480px){
+
+    td:nth-child(1),
+    td:nth-child(3),
+    td:nth-child(4),
+    td:nth-child(5) {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 480px) {
       body {
+        padding: 10px 6px;
         font-size: 12px;
-        padding: 10px;
       }
+
+      .wrap {
+        margin: 12px auto;
+        padding: 12px 10px 14px;
+      }
+
+      h2 {
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+
+      #avg {
+        font-size: 13px;
+        margin-bottom: 12px;
+      }
+
       th, td {
-        padding: 4px;
+        padding: 5px 6px;
         font-size: 10px;
       }
     }
   </style>
 </head>
 <body>
-  <h2>Смена 21-21.06.2026</h2>
-  <div id="avg"></div>
+  <div class="wrap">
+    <h2>Смена 21-21.06.2026</h2>
+    <div id="avg"></div>
 
-  <table id="tab">
-    <thead>
-      <tr id="hdr"></tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+    <table id="tab">
+      <thead>
+        <tr id="hdr"></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
 
   <script>
-    var data = [{"group":"Смена 21-21.06.2026","fullName":"Симонов  Михей  Андреевич","birth":"2012","id":"477943","rt":"1623"},{"group":"Смена 21-21.06.2026","fullName":"Сорокин Виктор Алексеевич","birth":"2011","id":"598010","rt":"1558"},{"group":"Смена 21-21.06.2026","fullName":"Борисов Максим Антонович","birth":"2016","id":"623921","rt":"1498"},{"group":"Смена 21-21.06.2026","fullName":"Алимов Кирилл Антонович","birth":"2017","id":"521960","rt":"1417"},{"group":"Смена 21-21.06.2026","fullName":"Фесенко Иван Олегович","birth":"2015","id":"703775","rt":"1379"},{"group":"Смена 21-21.06.2026","fullName":"Коршунов  Иван  Андреевич","birth":"2018","id":"673486","rt":"1354"},{"group":"Смена 21-21.06.2026","fullName":"Шпаковский Арсений Олегович","birth":"2014","id":"511207","rt":"1298"},{"group":"Смена 21-21.06.2026","fullName":"Перов Виктор  Владимирович","birth":"2015","id":"566220","rt":"1290"},{"group":"Смена 21-21.06.2026","fullName":"Рубайлов Дмитрий Михайлович","birth":"2014","id":"475337","rt":"1234"},{"group":"Смена 21-21.06.2026","fullName":"Потапов Иван Алексеевич","birth":"2016","id":"743583","rt":"1230"},{"group":"Смена 21-21.06.2026","fullName":"Леготин Игорь Георгиевич","birth":"2013","id":"468075","rt":"1165"},{"group":"Смена 21-21.06.2026","fullName":"Наркевич  Елизавета  Леонидовна","birth":"2015","id":"762305","rt":"1139"},{"group":"Смена 21-21.06.2026","fullName":"Згурская Варвара Николаевна","birth":"2018","id":"769384","rt":"1090"},{"group":"Смена 21-21.06.2026","fullName":"Ларин Александр Артемович","birth":"2015","id":"491499","rt":"1079"},{"group":"Смена 21-21.06.2026","fullName":"Бултаева Лайна Руслановна","birth":"0.14","id":"469835","rt":"1077"},{"group":"Смена 21-21.06.2026","fullName":"Козаев Тамерлан Георгиевич","birth":"2013","id":"697598","rt":"1000"},{"group":"Смена 21-21.06.2026","fullName":"Корковидов Сергей Вадимович","birth":"2018","id":"","rt":"1000"},{"group":"Смена 21-21.06.2026","fullName":"Первакова Алёна Денисовна","birth":"2018","id":"561633","rt":"1000"},{"group":"Смена 21-21.06.2026","fullName":"Дука  Михаил  Юрьевич","birth":"2015","id":"","rt":"1000"},{"group":"Смена 21-21.06.2026","fullName":"Пахомов Эйтан Михайлович","birth":"2018","id":"","rt":"1000"},{"group":"Смена 21-21.06.2026","fullName":"Пахомов Натан Михаилович","birth":"2020","id":"","rt":"1000"},{"group":"Смена 21-21.06.2026","fullName":"Черняева София Андреевна","birth":"2015","id":"749357","rt":"1000"}];
+    var data = [{"group":"Смена 21-21.06.2026","fullName":"Симонов  Михей  Андреевич","birth":"2012","id":"477943","rt":"1623"},{"group":"Смена 21-21.06.2026","fullName":"Сорокин Виктор Алексеевич","birth":"2011","id":"598010","rt":"1558"},{"group":"Смена 21-21.06.2026","fullName":"Борисов Максим Антонович","birth":"2016","id":"623921","rt":"1498"},{"group":"Смена 21-21.06.2026","fullName":"Алимов Кирилл Антонович","birth":"2017","id":"521960","rt":"1417"},{"group":"Смена 21-21.06.2026","fullName":"Фесенко Иван Олегович","birth":"2015","id":"703775","rt":"1379"},{"group":"Смена 21-21.06.2026","fullName":"Коршунов  Иван  Андреевич","birth":"2018","id":"673486","rt":"1354"},{"group":"Смена 21-21.06.2026","fullName":"Шпаковский Арсений Олегович","birth":"2014","id":"511207","rt":"1298"},{"group":"Смена 21-21.06.2026","fullName":"Перов Виктор  Владимирович","birth":"2015","id":"566220","rt":"1290"},{"group":"Смена 21-21.06.2026","fullName":"Рубайлов Дмитрий Михайлович","birth":"2014","id":"475337","rt":"1234"},{"group":"Смена 21-21.06.2026","fullName":"Потапов Иван Алексеевич","birth":"2016","id":"743583","rt":"1230"},{"group":"Смена 21-21.06.2026","fullName":"Леготин Игорь Георгиевич","birth":"2013","id":"468075","rt":"1165"},{"group":"Смена 21-21.06.2026","fullName":"Наркевич  Елизавета  Леонидовна","birth":"2015","id":"762305","rt":"1139"},{"group":"Смена 21-21.06.2026","fullName":"Згурская Варвара Николаевна","birth":"2018","id":"769384","rt":"1090"},{"group":"Смена 21-21.06.2026","fullName":"Ларин Александр Артемович","birth":"2015","id":"491499","rt":"1079"},{"group":"Смена 21-21.06.2026","fullName":"Бултаева Лайна Руслановна","birth":"","id":"469835","rt":"1077"},{"group":"Смена 21-21.06.2026","fullName":"Козаев Тамерлан Георгиевич","birth":"2013","id":"697598","rt":"1000"},{"group":"Смена 21-21.06.2026","fullName":"Корковидов Сергей Вадимович","birth":"2018","id":"","rt":"1000"},{"group":"Смена 21-21.06.2026","fullName":"Первакова Алёна Денисовна","birth":"2018","id":"561633","rt":"1000"},{"group":"Смена 21-21.06.2026","fullName":"Дука  Михаил  Юрьевич","birth":"2015","id":"","rt":"1000"},{"group":"Смена 21-21.06.2026","fullName":"Пахомов Эйтан Михайлович","birth":"2018","id":"","rt":"1000"},{"group":"Смена 21-21.06.2026","fullName":"Пахомов Натан Михаилович","birth":"2020","id":"","rt":"1000"},{"group":"Смена 21-21.06.2026","fullName":"Черняева София Андреевна","birth":"2015","id":"749357","rt":"1000"}];
     var col = 'rt';
     var asc = false;
 
@@ -115,6 +170,8 @@
             return asc ? nA - nB : nB - nA;
           }
 
+          A = A.toString();
+          B = B.toString();
           return A < B ? (asc ? -1 : 1) : A > B ? (asc ? 1 : -1) : 0;
         })
         .forEach(function(p, i) {
