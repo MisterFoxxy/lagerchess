@@ -124,12 +124,8 @@
     var asc = false;
 
     function sortBy(c) {
-      if (col === c) {
-        asc = !asc;
-      } else {
-        col = c;
-        asc = false;
-      }
+      if (col === c) asc = !asc;
+      else { col = c; asc = false; }
       render();
     }
 
@@ -137,10 +133,10 @@
       var hdr = document.getElementById('hdr');
       hdr.innerHTML = [
         '<th>#</th>',
-        '<th onclick="sortBy(\'fullName\')">ФИО</th>',
-        '<th onclick="sortBy(\'id\')">ID</th>',
-        '<th onclick="sortBy(\'birth\')">Год рожд.</th>',
-        '<th onclick="sortBy(\'rt\')">Рейтинг</th>'
+        '<th onclick="sortBy(\\'fullName\\')">ФИО</th>',
+        '<th onclick="sortBy(\\'id\\')">ID</th>',
+        '<th onclick="sortBy(\\'birth\\')">Год рожд.</th>',
+        '<th onclick="sortBy(\\'rt\\')">Рейтинг</th>'
       ].join('');
 
       var body = document.querySelector('#tab tbody');
